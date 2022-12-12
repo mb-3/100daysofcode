@@ -1,0 +1,56 @@
+print('''
+*******************************************************************************
+          |                   |                  |                     |
+ _________|________________.=""_;=.______________|_____________________|_______
+|                   |  ,-"_,=""     `"=.|                  |
+|___________________|__"=._o`"-._        `"=.______________|___________________
+          |                `"=._o`"=._      _`"=._                     |
+ _________|_____________________:=._o "=._."_.-="'"=.__________________|_______
+|                   |    __.--" , ; `"=._o." ,-"""-._ ".   |
+|___________________|_._"  ,. .` ` `` ,  `"-._"-._   ". '__|___________________
+          |           |o`"=._` , "` `; .". ,  "-._"-._; ;              |
+ _________|___________| ;`-.o`"=._; ." ` '`."\` . "-._ /_______________|_______
+|                   | |o;    `"-.o`"=._``  '` " ,__.--o;   |
+|___________________|_| ;     (#) `-.o `"=.`_.--"_o.-; ;___|___________________
+____/______/______/___|o;._    "      `".o|o_.--"    ;o;____/______/______/____
+/______/______/______/_"=._o--._        ; | ;        ; ;/______/______/______/_
+____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
+/______/______/______/______/____"=._o._; | ;_.--"o.--"_/______/______/______/_
+____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
+/______/______/______/______/______/______/______/______/______/______/_____ /
+*******************************************************************************
+''')
+print("Welcome to the Treasure Island Ski Resort Race.")
+print("Your mission is to get down the mountain first. You thought there was treasure?") 
+
+firstchoice = input("What trail would you like to take? Blue or Black?").lower()
+if firstchoice == "blue":
+  print("Taking it easy huh.")
+  secondbluechoice = input("Theres too many new riders on this trail slowing you down, do you want to speed past or suck it up? ").lower()
+  if secondbluechoice in ["speed", "past"]:
+    print("Your pass got clipped by patrol, try again next time speedy guy.")
+  else:
+    print("You feel like you're falling behind but you made your own choice.")
+    thirdbluechoice = input("You've hit an opening and you can see the lodge downhill, what trail do you want to get down on? Black or Green? ").lower()
+    if thirdbluechoice == "black":
+      print("You're a speedy guy, you got down to the lodge first. Congrats.")
+    else:
+      print("Due to high traffic, you hit a kid and get in an argument with their parents resulting in a fight with the father. You got kicked out, try again next time." )
+else:
+  print("Good luck then")
+  secondblackchoice = input("Turns out this is a trail flooded with mogles, do you want to give it a go? Y/N ").lower()
+  if secondblackchoice == "y":
+    print("You just sent it 20 feet in the air and broke a clavicle. Don't go so hard next time. ")
+  else:
+    print("Good choice, mogles suck.")
+    thirdblackchoice = input("You find a glades trail off to the side instead, do you want to see where it leads? Y/N ").lower()
+    if thirdblackchoice == "y":
+      print("That trail sent you straight down to the road and you're lost. Try again next time.")
+    else:
+      print("You send it down the side of the mogles instead. Turns out its pretty smooth.")
+      fourthblackchoice = input("The side is so smooth you're breaking 50 mph but now you have a fleet of ski patrol chasing you. Do you keep running? Y/N ").lower()
+      if fourthblackchoice == "y":
+        print("Congrats, your panic made you first to the lodge and the ski patrol think it was so cool that they forgot what they were doing. You win!")
+      else:
+        print("You stopped for ski patrol and they just mug you. Try again next time.")
+    
