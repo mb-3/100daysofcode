@@ -1,0 +1,63 @@
+#Today's topic is: Randomization and Lists/Nested Lists
+
+import random
+
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+choicelist = [rock,paper,scissors]
+
+playerchoice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors."))
+randnumber = random.randint(0,2)
+aichoice = choicelist[randnumber]
+
+#in the case of invalid input, i could write a while loop below to ask the user for input again rather than losing. 
+But for the sake of staying on the 100 Days of Code learning curve (not learning while loops yet), I use a simple "You lose" response and cut it. 
+if playerchoice >= 3 or playerchoice < 0:
+  print("You've entered an invalid number, you lose.")
+else:
+  print(choicelist[playerchoice])
+  print(f"Computer chose:\n{aichoice}")
+
+if playerchoice == randnumber:
+  print("You Draw")
+else:
+  if playerchoice == 0:
+    if randnumber == 1:
+      print("You Lose")
+    else:
+      print("You Win")
+  elif playerchoice == 1:
+    if randnumber == 2:
+      print("You Lose")
+    else:
+      print("You Win")
+  elif playerchoice == 2:
+    if randnumber == 0:
+      print("You Lose")
+    else:
+      print("You Win")
