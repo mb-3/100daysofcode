@@ -1,0 +1,28 @@
+from replit import clear
+
+def check_highest(bid_dict):
+  highest = 0
+  winner = ""
+  for name in bid_dict:
+    num = bid_dict[name]
+    if int(num) > int(highest):
+      highest = num
+      winner = name
+  clear()
+  print(f"The highest bidder is {winner} with ${highest}.")
+  
+bid_list = []
+bid_dict = {}
+bid_continue = True
+while bid_continue:
+  name = input("What is your name? ")
+  bid = input("What is your bid? ")
+  
+  bid_dict[name] = bid
+  
+  bid_ask = input("Would you like to make another bid? Y/N: ")
+  if bid_ask == "Y":
+    clear()
+  else:
+    bid_continue = False
+    check_highest(bid_dict)
