@@ -1,0 +1,48 @@
+def add(n1, n2):
+  """Adds two numbers"""
+  return n1 + n2
+
+def subract(n1, n2):
+  """Subracts two numbers"""
+  return n1 - n2
+
+def multiply(n1, n2):
+  """Multiplies two numbers"""
+  return n1 * n2
+
+def divide(n1, n2):
+  """Divides two numbers"""
+  return n1 / n2
+
+operations = {
+  "+":add,
+  "-":subract,
+  "*":multiply,
+  "/":divide,
+}
+def calculator():  
+  num1 = float(input("What is the first number?: "))
+  num2 = float(input("What is the second number?: "))
+  for key in operations:
+    print(key)
+  
+  operator = input("Pick an operator from the list above: ")
+  function = operations[operator]
+  result = function(num1, num2)
+  print(f"{num1} {operator} {num2} = {result}")
+  
+  continueflag = True
+  while continueflag:
+    continuechoice = input(f"Type 'y' to continue calculating with {result}, or type 'n' to exit: ")
+    if continuechoice == 'n':
+      continueflag = False
+      calculator()
+    else:  
+      operator = input("Pick an operator: ")
+      num3 = float(input("What is the next number?: "))
+      function = operations[operator]
+      secondresult = function(result, num3)
+      print(f"{result} {operator} {num3} = {secondresult}")
+      result = secondresult
+
+calculator()
