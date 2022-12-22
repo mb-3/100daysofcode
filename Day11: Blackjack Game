@@ -1,0 +1,99 @@
+import random
+from replit import clear
+
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
+def deal_card():
+  card = cards[random.randint(0,len(cards)-1)]
+  return card
+
+def compare(userscore, aiscore):
+  outcome = 'd'
+  if userscore > aiscore:
+    outcome = 'w'
+  elif aiscore > userscore:
+    outcome = 'l'
+  return outcome
+
+def modify_aicards(aicards):
+  aicards_touser = []
+  for i in aicards:
+    aicards_touser.append(i) 
+  aicards_touser[1] = 'X'
+  return aicards_touser
+  
+def blackjack():
+  gameon = True
+  while gameon:
+    playhandflag = True
+    while playhandflag:
+      clear()
+      firstdrawflag = True
+      while firstdrawflag:
+        usercards = []
+        aicards = []
+        for i in range(2):
+          usercards.append(deal_card())
+          aicards.append(deal_card())
+        firstdrawflag = False
+      hitwindowflag = True
+      while hitwindowflag and playhandflag:  
+        userscore = sum(usercards)
+        aiscore = sum(aicards)
+        aicards_touser = modify_aicards(aicards)
+        print(f"Your cards: {usercards}. Score: {userscore} ")
+        print(f"Dealer cards: {aicards_touser}. Score: ?? ")
+        if userscore and aiscore == 21:
+          print("You both drew blackjack.")
+          print(f"Dealer cards: {aicards}. {aiscore}")
+          print(f"Your cards: {usercards}. Score: {userscore} ")
+          playhandflag = False
+        elif userscore == 21:
+          print("You win with blackjack!")
+          playhandflag = False
+        elif aiscore == 21:
+          print(f"Dealer cards: {aicards}. {aiscore}")
+          print("The dealer has blackjack, you lose!")
+          playhandflag = False
+        elif userscore > 21:
+          if 11 in usercards:
+            print("Looks like you busted with an ace!")
+            usercards[usercards.index(11)] = 1
+            userscore = sum(usercards)
+            print(f"Here is your soft hand: {usercards}. Score: {userscore}")
+            if userscore > 21:
+              print("You busted.")
+              playhandflag = False
+          else:
+            print("You busted.")
+            playhandflag = False
+        if playhandflag:
+          hitorstay = input("Would you like to Hit ('h') or Stay ('s')?: ").lower()
+          if hitorstay == 'h':
+            usercards.append(deal_card())
+          else:
+            hitwindowflag = False
+      while aiscore < 17:
+        aicards.append(deal_card())
+        aiscore = sum(aicards)
+      if playhandflag:  
+        print(f"Your cards: {usercards}. {userscore}")
+        print(f"Dealer cards: {aicards}. {aiscore}")
+        if aiscore > 21:
+          print("The dealer busted, you win!")
+          playhandflag = False
+        else:
+          handresult = compare(userscore, aiscore)
+          if handresult == 'w':
+            print("You win this hand!")
+          elif handresult == 'l':
+            print("You lose this hand.")
+          else:
+            print("You drew with the dealer.")
+          playhandflag = False
+    if input("Would you like to play another hand? Y/N: ").lower() == 'y':
+      playhandflag = True
+    else:
+      gameon = False
+
+blackjack()
