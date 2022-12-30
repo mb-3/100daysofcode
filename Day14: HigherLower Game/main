@@ -1,0 +1,44 @@
+import game_data
+import art  
+import random
+from replit import clear
+
+def highlowergame():
+  gameon = True
+  score = 0
+  while gameon:
+    clear()
+    print(art.logo)
+    if score > 0:
+      print(f"You're right! Current score: {score}")
+  # Generate choices A and B
+    if score == 0:
+      chosenA = game_data.data[random.randint(0,len(game_data.data)-1)]
+      game_data.data.remove(chosenA)
+      chosenB = game_data.data[random.randint(0,len(game_data.data)-1)]
+    else:
+      chosenB = game_data.data[random.randint(0,len(game_data.data)-1)]
+      game_data.data.remove(chosenB)
+  # Print First choice
+    print(f"Compare A: {chosenA['name']}, a {chosenA['description']}, from {chosenA['country']}.")
+  # VS.
+    print(art.vs)
+  # Print second choice
+    print(f"Against B: {chosenB['name']}, a {chosenB['description']}, from {chosenB['country']}.")
+    answer = input("Who has more followers? Type 'A' or 'B': ").lower()
+    if answer == 'a':
+      if chosenA['follower_count'] > chosenB['follower_count']:
+        score += 1
+      else:
+        gameon = False
+    elif answer == 'b':
+      if chosenB['follower_count'] > chosenA['follower_count']:
+        score += 1
+        chosenA = chosenB
+      else:
+        gameon = False
+  clear()
+  print(art.logo)
+  print(f"Sorry that's wrong. Final score: {score}")
+
+highlowergame()
