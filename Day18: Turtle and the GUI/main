@@ -6,6 +6,7 @@ from turtle import Turtle, Screen
 tim = Turtle()
 turtle.colormode(255)
 
+## Extract colors from images.jpg using colorgram
 # rgb_colors = []
 #
 # colors = colorgram.extract('images.jpg', 30)
@@ -22,6 +23,7 @@ color_list = [(138, 167, 197), (196, 139, 149),
               (203, 86, 75), (189, 98, 107), (49, 42, 38), (231, 171, 162), (19, 93, 70), (175, 190, 214),
               (110, 123, 158), (27, 61, 109), (173, 202, 190), (51, 149, 193), (64, 67, 55)]
 
+## Project parameters
 # 10 x 10 rows of spots
 # dots are 20 in size
 # 50 paces between dots
