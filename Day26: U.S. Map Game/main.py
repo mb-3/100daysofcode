@@ -17,11 +17,13 @@ with open("50_states.csv") as df:
 correct_count = 0
 answer = screen.textinput(title="Guess a state", prompt="Name a U.S. state:").title()
 guessed_states = []
-missing_states = []
 game_on = True
 
 while game_on:
     if answer == 'Exit':
+        missing_states = [state for state in good_list if state[0] not in guessed_states]
+        new_data = pandas.DataFrame(missing_states)
+        new_data.to_csv("states_to_learn.csv")
         break
     if correct_count < 50:
         for state_item in good_list:
@@ -33,12 +35,6 @@ while game_on:
         game_on = False
     answer = screen.textinput(title=f"{correct_count}/50 Correct", prompt="Name another state: ").title()
 
-
-for i in good_list:
-    if i not in guessed_states:
-        missing_states.append(i)
-        new_data = pandas.DataFrame(missing_states)
-        new_data.to_csv("states_to_learn.csv")
 
 
 
