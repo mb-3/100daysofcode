@@ -7,7 +7,7 @@ today = dt.datetime.now()
 day = today.day
 month = today.month
 my_email = "mjb.python@gmail.com"
-password = "leijcsvdoxmnxead"
+password = ""
 letters = ['letter_templates/letter_1.txt', 'letter_templates/letter_2.txt', 'letter_templates/letter_3.txt']
 
 df = pandas.read_csv("birthdays.csv")
