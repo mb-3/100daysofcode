@@ -2,10 +2,8 @@ import requests
 import os
 
 
-sheety_endpoint = "https://api.sheety.co/4d0df6a0a7767a5703a77be853115f46/flightDeals/"
-sheety_headers = {
-    "Authorization": "Bearer nbEE9820[]9jheN",
-}
+sheety_endpoint = os.environ['SHEETY_ENDPOINT']
+sheety_headers = os.environ['SHEETY_AUTH']
 
 
 class DataManager:
