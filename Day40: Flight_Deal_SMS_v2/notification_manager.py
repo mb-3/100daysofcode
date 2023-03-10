@@ -6,8 +6,8 @@ TWILIO_SID = os.environ['SID']
 TWILIO_AUTH_TOKEN = os.environ['TWILIO_AUTH_TOKEN']
 TWILIO_VIRTUAL_NUMBER = os.environ['MY_NUM']
 TWILIO_VERIFIED_NUMBER = os.environ['MY_VER_NUM']
-my_email = "mjb.python@gmail.com"
-password = "leijcsvdoxmnxead"
+my_email = os.environ['EMAIL']
+password = os.environ['EMAIL_PW']
 
 class NotificationManager:
 
