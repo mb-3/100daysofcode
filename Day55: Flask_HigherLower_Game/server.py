@@ -2,9 +2,6 @@ from flask import Flask
 import random
 import time
 
-## This game is a Flask approach to the Higher Lower game from an ealier day. 
-## Personally, I think this is a poor design as this does not take in user input in a friendly way. (Typing "/" then a number in the url isn't a fun game)
-
 app = Flask(__name__)
 
 correct_num = random.randint(0, 9)
