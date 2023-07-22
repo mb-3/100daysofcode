@@ -51,7 +51,6 @@ def edit_rating():
 @app.route("/delete")
 def delete():
     book_id = request.args.get('id')
-    book_select = db.get_or_404(Books, book_id)
     book_to_delete = db.session.execute(db.select(Books).where(Books.id == book_id)).scalar()
     db.session.delete(book_to_delete)
     db.session.commit()
