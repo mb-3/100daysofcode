@@ -9,7 +9,7 @@ COMPANY_NAME = "Amazon"
 up_icon = "🔺"
 down_icon = "🔻"
 
-account_sid = "ACc78f4dd09ba2d02039fd2150c4ec95eb"
+account_sid = ""
 auth_token = os.environ.get("TWILIO_AUTH_TOKEN")
 
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
