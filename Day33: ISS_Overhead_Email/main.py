@@ -5,7 +5,7 @@ import time as t
 
 MY_LAT = ######
 MY_LNG = ######
-my_email = "mjb.python@gmail.com"
+my_email = ""
 password = ""
 
 
